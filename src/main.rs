@@ -22,7 +22,13 @@ fn main() {
     }
 
     if &args[1] == "run" {
-        run_day(&args[2].parse::<u8>().unwrap());
+        if args.len() < 4 {
+            println!("usage: {} run [day] [part]", &args[0]);
+        }
+        run_day(
+            &args[2].parse::<u8>().unwrap(),
+            &args[3].parse::<u8>().unwrap(),
+        );
     } else {
         generate_day(&args[1]);
     }
@@ -30,7 +36,7 @@ fn main() {
     // run_day(&args[1].parse::<u8>().unwrap());
 }
 
-fn run_day(day: &u8) {
+fn run_day(day: &u8, part: &u8) {
     let url: String = format!("https://adventofcode.com/2021/day/{}/input", day);
 
     let client = reqwest::blocking::Client::new();
@@ -47,9 +53,18 @@ fn run_day(day: &u8) {
 
     let input = resp.text().unwrap();
 
+<<<<<<< HEAD
     let all = days();
 
     println!("{}", all[(day - 1) as usize].part2(&input));
+=======
+    let s_day = &days()[(day - 1) as usize];
+    match part {
+        1 => println!("{}", s_day.part1(&input)),
+        2 => println!("{}", s_day.part2(&input)),
+        _ => println!("Invalid part"),
+    }
+>>>>>>> 923f91c9f61d0bc088a0f0bd9a8183c5a015c486
 }
 
 fn generate_day(day: &String) {
