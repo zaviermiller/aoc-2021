@@ -49,7 +49,7 @@ fn run_day(day: &u8) {
 
     let all = days();
 
-    all[(day - 1) as usize].part1(&input);
+    println!("{}", all[(day - 1) as usize].part2(&input));
 }
 
 fn generate_day(day: &String) {
