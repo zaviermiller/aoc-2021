@@ -53,18 +53,12 @@ fn run_day(day: &u8, part: &u8) {
 
     let input = resp.text().unwrap();
 
-<<<<<<< HEAD
-    let all = days();
-
-    println!("{}", all[(day - 1) as usize].part2(&input));
-=======
     let s_day = &days()[(day - 1) as usize];
     match part {
         1 => println!("{}", s_day.part1(&input)),
         2 => println!("{}", s_day.part2(&input)),
         _ => println!("Invalid part"),
     }
->>>>>>> 923f91c9f61d0bc088a0f0bd9a8183c5a015c486
 }
 
 fn generate_day(day: &String) {
